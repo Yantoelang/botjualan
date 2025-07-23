@@ -1,0 +1,11 @@
+{
+  "watch": [
+    "index.js",
+    "costumer"
+  ],
+  "ignore": [
+    "auth"
+  ],
+  "ext": "js,json",
+  "delay": "500"
+}

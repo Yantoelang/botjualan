@@ -115,8 +115,7 @@ cron.schedule('* * * * *', () => {
         }
         if (stderr) console.error('⚠️ STDERR:', stderr);
         console.log('✅ PUSH SUKSES BRO YANTO:\n', stdout);
-    });4db4b12 (🕛 Auto backup & push by bot jam 00:01)
-});
+       (🕛 Auto backup & push by bot jam 00:01)});
 
   // ========== SALAM OTOMATIS ========== \\
   const recentMessages = new Set();

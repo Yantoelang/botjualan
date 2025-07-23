@@ -49,11 +49,20 @@ async function startBot() {
 
   const sock = makeWASocket({
     version,
-    printQRInTerminal: true,
+
     auth: state,
-    logger: P({ level: 'silent' }),
+    logger: P({ level: 'info' }),
     browser: ['Mas YantoBot', 'Chrome', '1.0']
   });
+
+// === Qr kode === \\
+sock.ev.on('connection.update', (update) => {
+  const { qr } = update
+  if (qr) {
+    const qrcode = require('qrcode-terminal')
+    qrcode.generate(qr, { small: true })
+  }
+})
 
 sock.ev.on('creds.update', saveCreds);
 

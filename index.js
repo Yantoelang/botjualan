@@ -101,7 +101,7 @@ async function startSock() {
     }
   });
 
-// #tag: backup-auth-daily
+// #tag: backup-auth-harian-gdrive
 cron.schedule('0 0 * * *', () => {
     console.log('⏳ Backup auth ke Google Drive dimulai...');
     exec('rclone sync -P auth remote-gdrive-backup-auth:backup-wa/auth', (err, stdout, stderr) => {
@@ -110,7 +110,21 @@ cron.schedule('0 0 * * *', () => {
             return;
         }
         if (stderr) console.error('⚠️ STDERR:', stderr);
-        console.log('✅ Backup sukses:\n', stdout);
+        console.log('✅ Backup sukses BRO YANTO:\n', stdout);
+    });
+});
+
+// #tag: auto-push-github-harian
+cron.schedule('* * * * *', () => {
+    console.log('⏳ Push update ke GitHub dimulai...');
+
+    exec(`git add . && git commit -m "🕛 Auto backup & push by bot jam 00:00" && git push`, (err, stdout, stderr) => {
+        if (err) {
+            console.error('❌ Gagal push GitHub:', err.message);
+            return;
+        }
+        if (stderr) console.error('⚠️ STDERR:', stderr);
+        console.log('✅ PUSH SUKSES BRO YANTO:\n', stdout);
     });
 });
 

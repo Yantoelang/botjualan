@@ -1,7 +1,7 @@
 // ======== AUTO-CONFIG by Mas YANTO ========
 // #tag: nodemon-safety
 process.on('SIGINT', () => {
-  console.log('🛑 Deteksi Ctrl+C / Nodemon restart. Tutup koneksi...');
+  console.log('🛑 Deteksi Ctrl+C / Nodemon restart. Tutup KONTOL...');
   process.exit();
 });
 
@@ -19,7 +19,7 @@ if (!fs.existsSync('./nodemon.json')) {
     ext: "js,json",
     delay: "500"
   }, null, 2));
-  console.log('📁 nodemon.json auto dibuat');
+  console.log('📁 nodemon.json auto DIKONTOL');
 }
 // ========================================
 

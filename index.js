@@ -1,3 +1,4 @@
+
 const fs = require('fs');
 const path = require('path');
 const P = require('pino');
@@ -88,6 +89,33 @@ sock.ev.on('connection.update', async ({ connection, lastDisconnect }) => {
       console.log('❌ Terlogout permanen. Scan ulang QR dibutuhkan!');
     }
   }
+  });
+
+// #tag: backup-auth-harian-gdrive
+cron.schedule('0 0 * * *', () => {
+    console.log('⏳ Backup auth ke Google Drive dimulai...');
+    exec('rclone sync -P auth remote-gdrive-backup-auth:backup-wa/auth', (err, stdout, stderr) => {
+        if (err) {
+            console.error('❌ Gagal backup:', err.message);
+            return;
+        }
+        if (stderr) console.error('⚠️ STDERR:', stderr);
+        console.log('✅ Backup sukses BRO YANTO:\n', stdout);
+    });
+});
+
+// #tag: auto-push-github-harian
+cron.schedule('* * * * *', () => {
+    console.log('⏳ Push update ke GitHub dimulai...');
+
+    exec(`git add . && git commit -m "🕛 Auto backup & push by bot jam 00:00" && git push`, (err, stdout, stderr) => {
+        if (err) {
+            console.error('❌ Gagal push GitHub:', err.message);
+            return;
+        }
+        if (stderr) console.error('⚠️ STDERR:', stderr);
+        console.log('✅ PUSH SUKSES BRO YANTO:\n', stdout);
+    });4db4b12 (🕛 Auto backup & push by bot jam 00:01)
 });
 
   // ========== SALAM OTOMATIS ========== \\

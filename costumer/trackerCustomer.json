@@ -1,14 +1,14 @@
 {
   "6281932922661@s.whatsapp.net": {
     "firstSeen": 1753226100672,
-    "lastSeen": 1753269814591,
-    "totalChat": 21,
-    "lastSalam": 1753269775295
+    "lastSeen": 1753362355303,
+    "totalChat": 25,
+    "lastSalam": 1753362351924
   },
   "status@broadcast": {
-    "lastSalam": 1753270692871,
-    "lastSeen": 1753282613362,
-    "totalChat": 10
+    "lastSalam": 1753359195684,
+    "lastSeen": 1753369362696,
+    "totalChat": 19
   },
   "628551000185@s.whatsapp.net": {
     "lastSalam": 1753269766084,
@@ -18,6 +18,11 @@
   "6288801148696@s.whatsapp.net": {
     "lastSalam": 1753275953759,
     "lastSeen": 1753275953759,
+    "totalChat": null
+  },
+  "6283164572326@s.whatsapp.net": {
+    "lastSalam": 1753364294834,
+    "lastSeen": 1753364330203,
     "totalChat": null
   }
 }

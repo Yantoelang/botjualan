@@ -85,27 +85,28 @@ async function startBot() {
     }
   });
 
-  // #tag: auto-backup-auth-gdrive
-  cron.schedule('0 0 * * *', () => {
+
+// #tag: auto-backup-auth-gdrive
+cron.schedule('0 0 * * *', () => {
     console.log('⏳ Backup auth ke Google Drive dimulai...');
     exec('rclone sync -P auth remote-gdrive-backup-auth:backup-wa/auth', (err, stdout, stderr) => {
-      if (err) return console.error('❌ Gagal backup:', err.message);
-      if (stderr) console.error('⚠️ STDERR:', stderr);
-      console.log('✅ Backup sukses ke G.Drive:
-', stdout);
+        if (err) return console.error('❌ Gagal backup:', err.message);
+        if (stderr) console.error('⚠️ STDERR:', stderr);
+        console.log('✅ Backup sukses ke G.Drive:', stdout);
     });
-  });
+});
 
-  // #tag: auto-push-github
-  cron.schedule('0 0 * * *', () => {
+// #tag: auto-push-github
+cron.schedule('0 0 * * *', () => {
     console.log('⏳ Auto push ke GitHub dimulai...');
     exec(`git add . && git commit -m "🕛 Auto backup & push by bot jam 00:00" && git push`, (err, stdout, stderr) => {
-      if (err) return console.error('❌ Gagal push GitHub:', err.message);
-      if (stderr) console.error('⚠️ STDERR:', stderr);
-      console.log('✅ PUSH ke GitHub Bro Yanto:
-', stdout);
+        if (err) return console.error('❌ Gagal push GitHub:', err.message);
+        if (stderr) console.error('⚠️ STDERR:', stderr);
+        console.log('✅ PUSH ke GitHub Bro Yanto:', stdout);
     });
-  });
+});
+
+
 
   // ========== SALAM OTOMATIS ========== //
   const recentMessages = new Set();

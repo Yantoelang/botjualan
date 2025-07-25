@@ -3,3 +3,4 @@ session/
 node_modules/
 *.log
 .env
+auto_conflict_resolver.sh
